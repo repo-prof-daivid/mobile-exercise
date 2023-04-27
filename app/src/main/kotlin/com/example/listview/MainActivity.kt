@@ -14,12 +14,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpList()
-        setUpAddNewListElment()
+        //setUpAddNewListElment()
     }
 
+    /*
     private fun setUpAddNewListElment() {
-        TODO("Crie a função que adiciona um novo elmento na lista e atualiza a lista.")
-    }
+        TODO("Descomente a função e crie a função
+         que adiciona um novo elmento na lista e atualiza a lista.")
+    }*/
 
     /**
      * Configuração inicial da lista
@@ -32,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         )
         binding.listViewPersons.adapter = adapter
     }
-
 
 
     /**
