@@ -1,4 +1,4 @@
-package com.example.networkconection
+package com.example.networkconection.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

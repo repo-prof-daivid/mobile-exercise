@@ -7,4 +7,5 @@
     <string name="welcome_message">Bem vindos a listagem dos Repositórios do GitHub do Professor</string>
     <string name="error_message">Aconteceu um erro por aqui, tente novamente!</string>
     <string name="empty_message">Ops, parece que a lista está vazia!</string>
+    <string name="load_github_repos">Carregar GithubRepos</string>
 </resources>

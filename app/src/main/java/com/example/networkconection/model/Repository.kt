@@ -1,11 +1,11 @@
-package com.example.networkconection
+package com.example.networkconection.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Repositorio(
+data class Repository(
     val id: Int,
     val name: String,
     val owner: Owner,
