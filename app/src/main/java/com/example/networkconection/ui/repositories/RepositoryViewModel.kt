@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.networkconection.model.Repository
 import com.example.networkconection.repository.RepositoryRepository
 
-class RepositoryViewModel : ViewModel() {
+class RepositoryViewModel() : ViewModel() {
 
     private val repositoryRepository = RepositoryRepository()
 
@@ -28,11 +28,10 @@ class RepositoryViewModel : ViewModel() {
         repositoryRepository.getRepositories(
             userName = userName,
             onSuccess = {
+                _loading.postValue(false)
                 if (it.isEmpty()) {
-                    _loading.postValue(false)
-                    _error.postValue(true)
+                    _empty.postValue(true)
                 } else {
-                    _loading.postValue(false)
                     _repositories.postValue(it as ArrayList<Repository>)
                 }
             },
