@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.networkconection.R
 import com.example.networkconection.model.Repository
 import com.example.networkconection.databinding.GithubRepoListItemBinding
+import com.example.networkconection.ui.pullrequest.PullRequestActivity
+import com.example.networkconection.ui.pullrequest.PullRequestActivity.Companion.OWNER
+import com.example.networkconection.ui.pullrequest.PullRequestActivity.Companion.REPO
 import com.squareup.picasso.Picasso
 
 
@@ -22,6 +25,12 @@ class RepositoryVH(private val binding: GithubRepoListItemBinding): RecyclerView
         binding.btnGoToWeb.setOnClickListener {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(repository.link))
             binding.root.context.startActivity(browserIntent)
+        }
+        binding.root.setOnClickListener {
+            val intent = Intent(binding.root.context, PullRequestActivity::class.java)
+            intent.putExtra(OWNER, repository.owner.login)
+            intent.putExtra(REPO, repository.name)
+            binding.root.context.startActivity(intent)
         }
     }
 
