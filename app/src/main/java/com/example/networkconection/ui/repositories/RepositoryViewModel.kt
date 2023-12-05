@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.example.networkconection.model.Repository
 import com.example.networkconection.repository.RepositoryRepository
 
-class RepositoryViewModel() : ViewModel() {
-
-    private val repositoryRepository = RepositoryRepository()
+class RepositoryViewModel(
+    private val repositoryRepository: RepositoryRepository
+) : ViewModel() {
 
     private val _repositories: MutableLiveData<ArrayList<Repository>> =
         MutableLiveData(arrayListOf())

@@ -1,12 +1,14 @@
 package com.example.networkconection.repository
 
 import com.example.networkconection.model.Repository
-import com.example.networkconection.network.Network.service
+import com.example.networkconection.network.ApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RepositoryRepository {
+class RepositoryRepository(
+    private val service: ApiService
+) {
 
     fun getRepositories(
         userName: String,

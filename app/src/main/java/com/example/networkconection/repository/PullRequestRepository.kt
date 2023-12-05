@@ -1,12 +1,14 @@
 package com.example.networkconection.repository
 
 import com.example.networkconection.model.PullRequest
-import com.example.networkconection.network.Network.service
+import com.example.networkconection.network.ApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PullRequestRepository {
+class PullRequestRepository(
+    private val service: ApiService
+) {
 
     fun getPullRequests(
         owner: String,

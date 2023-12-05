@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.networkconection.databinding.ActivityPullRequestBinding
 import com.example.networkconection.model.PullRequest
 import com.example.networkconection.ui.pullrequest.adapter.PullRequestAdapter
+import org.koin.android.ext.android.inject
 
 class PullRequestActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPullRequestBinding
-    private val viewModel = PullRequestViewModel()
+    private val viewModel: PullRequestViewModel by inject()
     private lateinit var pullRequests: ArrayList<PullRequest>
     private lateinit var adapter: PullRequestAdapter
 

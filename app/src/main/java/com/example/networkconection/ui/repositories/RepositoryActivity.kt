@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.networkconection.model.Repository
 import com.example.networkconection.databinding.ActivityRepositoryBinding
 import com.example.networkconection.ui.repositories.adapter.RepositoryAdapter
+import org.koin.android.ext.android.inject
 
 class RepositoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRepositoryBinding
     private lateinit var repositories: ArrayList<Repository>
     private lateinit var adapter: RepositoryAdapter
-    private val viewModel = RepositoryViewModel()
+    private val viewModel: RepositoryViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
