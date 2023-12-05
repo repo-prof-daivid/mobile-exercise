@@ -1,6 +1,10 @@
 package com.example.networkconection.model
 
-data class UserXX(
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class User(
     val avatar_url: String,
     val events_url: String,
     val followers_url: String,
@@ -19,4 +23,4 @@ data class UserXX(
     val subscriptions_url: String,
     val type: String,
     val url: String
-)
+): Parcelable

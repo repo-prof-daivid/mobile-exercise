@@ -11,9 +11,13 @@ class PullRequestViewModel : ViewModel() {
 
     private val repository = PullRequestRepository()
 
-    private val _pullRequests: MutableLiveData<String> =
+    private val _pullRequests: MutableLiveData<ArrayList<PullRequest>> =
+        MutableLiveData(arrayListOf())
+    val pullRequests: LiveData<ArrayList<PullRequest>> = _pullRequests
+
+    private val _feedBackMessage: MutableLiveData<String> =
         MutableLiveData(String())
-    val pullRequests: LiveData<String> = _pullRequests
+    val feedBackMessage: LiveData<String> = _feedBackMessage
 
 
     fun getPullRequests(
@@ -21,14 +25,17 @@ class PullRequestViewModel : ViewModel() {
         repo: String
     ) {
         repository.getPullRequests(
-            owner,
-            repo,
-            {
-                _pullRequests.postValue(it.toString())
-                Log.d("RESPONSE", it.toString())
+            owner = owner,
+            repo = repo,
+            onSuccess = {
+                if (it.isEmpty()) {
+                    _feedBackMessage.postValue("Esse repo não contém pull requests!!!")
+                } else {
+                    _pullRequests.postValue(it as ArrayList<PullRequest>)
+                }
             },
-            {
-                Log.e("RESPONSE", "DEU RUIM!")
+            onFailure = {
+                _feedBackMessage.postValue("Deu ruim colega!!!")
             })
     }
 

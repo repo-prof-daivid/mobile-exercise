@@ -12,7 +12,7 @@ class PullRequestRepository {
         owner: String,
         repo: String,
         onSuccess: (List<PullRequest>) -> Unit,
-        onFailure: () -> Unit
+        onFailure: (t: Throwable) -> Unit
     ){
         val response = service.listPullRequest(owner, repo)
         response.enqueue(
@@ -27,7 +27,7 @@ class PullRequestRepository {
                 }
 
                 override fun onFailure(call: Call<List<PullRequest>>, t: Throwable) {
-                    onFailure()
+                    onFailure(t)
                 }
 
             }
