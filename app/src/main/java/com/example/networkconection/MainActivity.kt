@@ -6,7 +6,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.networkconection.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        changeElementsVisibility(welcomeMessageVisibility = View.VISIBLE)
     }
 
     private fun changeElementsVisibility(
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding.welcomeMessage.visibility = welcomeMessageVisibility
         binding.erroMessage.visibility = errorMessageVisibility
         binding.emptyMessage.visibility = emptyMessageVisibility
-        binding.rvRepositories.visibility = rvVisibilityMessageVisibility
+        binding.listRepositories.visibility = rvVisibilityMessageVisibility
         binding.progressBar.visibility = progressBarVisibility
     }
 

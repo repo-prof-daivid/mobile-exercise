@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">NetworkConection</string>
     <string name="go_to_web">Ir para web</string>
+    <string name="load_repos">Load repo list</string>
     <string name="created_by">Repositório criado por: %s</string>
     <string name="title">Título: %s</string>
     <string name="description">Descrição: %s</string>
