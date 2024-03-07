@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">lista</string>
+    <string name="addPerson">Adicionar Pessoa</string>
+    <string name="name">Nome</string>
+    <string name="phone">Número de Telefone:</string>
+</resources>
