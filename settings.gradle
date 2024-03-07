@@ -3,7 +3,9 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
-        jcenter()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
 }
 dependencyResolutionManagement {
@@ -11,8 +13,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        jcenter()
+        gradlePluginPortal()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
 }
-rootProject.name = "NetworkConection"
+
+rootProject.name = "mobile-exercise"
 include ':app'
