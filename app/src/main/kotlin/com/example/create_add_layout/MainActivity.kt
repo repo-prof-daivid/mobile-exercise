@@ -1,9 +1,9 @@
-package com.example.listview
+package com.example.create_add_layout
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.listview.databinding.ActivityMainBinding
+import com.example.create_add_layout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
