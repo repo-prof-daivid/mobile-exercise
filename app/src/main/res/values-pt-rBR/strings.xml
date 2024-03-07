@@ -3,5 +3,6 @@
     <string name="app_name">Criar layout de adicionar</string>
     <string name="addPerson">Adicionar Pessoa</string>
     <string name="name">Nome</string>
-    <string name="phone">Número de Telefone:</string>
+    <string name="phone">Telefone</string>
+    <string name="message_field_required">O campo %s é obrigatório!</string>
 </resources>

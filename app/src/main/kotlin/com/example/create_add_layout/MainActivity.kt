@@ -2,7 +2,9 @@ package com.example.create_add_layout
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.create_add_layout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,23 +14,41 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //setUpList()
-
-        Log.e("LOG TYPE:", "ERROR MESSAGE")
-        Log.d("LOG TYPE:", "DEBUG MESSAGE")
-        Log.w("LOG TYPE:", "WARNING MESSAGE")
-        Log.i("LOG TYPE:", "INFORMATION MESSAGE")
-        Log.v("LOG TYPE:", "VERBOSE MESSAGE")
-        //setUpAddNewListElment()
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        setUpListeners()
     }
 
-    /*
-    private fun setUpAddNewListElment() {
-        TODO("Descomente a função e crie a função
-         que adiciona um novo elmento na lista e atualiza a lista.")
-    }*/
+    private fun setUpListeners(){
+        binding.btnAddPerson.setOnClickListener {
+            addContact()
+        }
+    }
+
+    private fun addContact() {
+        val name = binding.editTextPersonName.text.toString()
+        val phone = binding.editTextPersonPhone.text.toString()
+        var isToAdd = true
+        if (name.isEmpty()) {
+            binding.editTextPersonName.error =
+                getString(R.string.message_field_required, getString(R.string.name))
+            isToAdd = false
+        }
+        if (phone.isEmpty()) {
+            binding.editTextPersonPhone.error =
+                getString(R.string.message_field_required, getString(R.string.phone))
+            isToAdd = false
+        }
+        if (isToAdd) {
+            contactList.add(Person(name, phone))
+        }
+    }
 
 
 }

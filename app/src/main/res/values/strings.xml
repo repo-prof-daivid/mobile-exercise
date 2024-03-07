@@ -3,4 +3,5 @@
     <string name="addPerson">Add Person</string>
     <string name="name">Name</string>
     <string name="phone">Phone Number</string>
+    <string name="message_field_required">Field %s is required!</string>
 </resources>
