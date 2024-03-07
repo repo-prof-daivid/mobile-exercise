@@ -1,7 +1,10 @@
 <resources>
-    <string name="hello">Hello, %s</string>
-    <string name="app_name">idioma</string>
-    <string name="addPerson">Add Person</string>
-    <string name="name">Name</string>
-    <string name="phone">Phone Number</string>
+    <string name="app_name">NetworkConection</string>
+    <string name="go_to_web">Go to Web</string>
+    <string name="created_by">Repository created by: %s</string>
+    <string name="title">Title: %s</string>
+    <string name="description">Description: %s</string>
+    <string name="welcome_message">Welcome to the teacher repository list.</string>
+    <string name="error_message">Something went wrong, please try again!</string>
+    <string name="empty_message">Ops, seems like the list is empty!</string>
 </resources>

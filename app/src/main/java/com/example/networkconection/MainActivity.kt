@@ -1,12 +1,13 @@
 package com.example.networkconection
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.hello_world.R
-import com.example.hello_world.databinding.ActivityMainBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.networkconection.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,21 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.helloTxt.text = getString(R.string.hello, "Daivid!")
     }
+
+    private fun changeElementsVisibility(
+        welcomeMessageVisibility: Int = View.GONE,
+        errorMessageVisibility: Int = View.GONE,
+        emptyMessageVisibility: Int = View.GONE,
+        rvVisibilityMessageVisibility: Int = View.GONE,
+        progressBarVisibility: Int = View.GONE
+    ) {
+        binding.welcomeMessage.visibility = welcomeMessageVisibility
+        binding.erroMessage.visibility = errorMessageVisibility
+        binding.emptyMessage.visibility = emptyMessageVisibility
+        binding.rvRepositories.visibility = rvVisibilityMessageVisibility
+        binding.progressBar.visibility = progressBarVisibility
+    }
+
 
 }

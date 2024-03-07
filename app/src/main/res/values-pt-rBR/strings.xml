@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Olá, %s</string>
-    <string name="app_name">idioma</string>
-    <string name="addPerson">Adicionar Pessoa</string>
-    <string name="name">Nome</string>
-    <string name="phone">Número de telefone</string>
+    <string name="app_name">NetworkConection</string>
+    <string name="go_to_web">Ir para web</string>
+    <string name="created_by">Repositório criado por: %s</string>
+    <string name="title">Título: %s</string>
+    <string name="description">Descrição: %s</string>
+    <string name="welcome_message">Bem vindos a listagem dos Repositórios do GitHub do Professor</string>
+    <string name="error_message">Aconteceu um erro por aqui, tente novamente!</string>
+    <string name="empty_message">Ops, parece que a lista está vazia!</string>
 </resources>
