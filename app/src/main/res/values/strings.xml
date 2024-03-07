@@ -1,6 +1,6 @@
 <resources>
     <string name="hello">Hello, %s</string>
-    <string name="app_name">listview</string>
+    <string name="app_name">idioma</string>
     <string name="addPerson">Add Person</string>
     <string name="name">Name</string>
     <string name="phone">Phone Number</string>
