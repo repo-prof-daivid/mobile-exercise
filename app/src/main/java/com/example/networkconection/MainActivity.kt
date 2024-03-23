@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.helloTxt.text = getString(R.string.hello, "Daivid!")
+        binding.helloTxt.text = getString(R.string.hello, "Jonas!")
     }
 
 }
