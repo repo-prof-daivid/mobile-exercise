@@ -8,7 +8,7 @@
     tools:context="com.example.create_add_layout.MainActivity">
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editTextPersonName"
+        android:id="@+id/editTextName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -21,17 +21,58 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/editTextPersonPhone"
+        android:id="@+id/editTextPhone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/phone"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="number"
+        android:hint="@string/age"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextHobby"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/hobby"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextSex"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/sex"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextHobby" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAddPerson"
@@ -41,6 +82,6 @@
         android:layout_marginEnd="16dp"
         android:text="@string/addPerson"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPersonPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextSex" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

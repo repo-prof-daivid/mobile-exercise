@@ -1,8 +1,10 @@
 package com.example.create_add_layout
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.create_add_layout.databinding.ActivityMainBinding
@@ -25,29 +27,61 @@ class MainActivity : AppCompatActivity() {
         setUpListeners()
     }
 
-    private fun setUpListeners(){
+    private fun setUpListeners() {
         binding.btnAddPerson.setOnClickListener {
             addContact()
         }
     }
 
     private fun addContact() {
-        val name = binding.editTextPersonName.text.toString()
-        val phone = binding.editTextPersonPhone.text.toString()
-        var isToAdd = true
-        if (name.isEmpty()) {
-            binding.editTextPersonName.error =
-                getString(R.string.message_field_required, getString(R.string.name))
-            isToAdd = false
+        val name = binding.editTextName.text.toString()
+        val phone = binding.editTextPhone.text.toString()
+        val age = binding.editTextAge.text.toString()
+            .takeIf {
+                it.isFieldValid(Regex("^?\\d+(\\.\\d+)?\$"))
+            }?.toInt() ?: 0
+        val hobby = binding.editTextHobby.text.toString()
+        val sex = binding.editTextSex.text.toString()
+        val person = Person(name, phone, age, hobby, sex)
+        if (isFormValid(person)) {
+            contactList.add(person)
         }
-        if (phone.isEmpty()) {
-            binding.editTextPersonPhone.error =
-                getString(R.string.message_field_required, getString(R.string.phone))
-            isToAdd = false
+    }
+
+    private fun isFormValid(person: Person): Boolean =
+        validateField(person.name, binding.editTextName, R.string.name)
+                && validateField(person.phone, binding.editTextPhone, R.string.phone)
+                && validateField(person.age, binding.editTextAge, R.string.age)
+                && validateField(person.hobby, binding.editTextHobby, R.string.hobby)
+                && validateField(person.sex, binding.editTextSex, R.string.sex)
+
+
+    private fun validateField(
+        text: String,
+        view: AppCompatEditText,
+        @StringRes errorField: Int
+    ): Boolean {
+        var isToAdd1 = true
+        if (text.isEmpty()) {
+            view.error =
+                getString(R.string.message_field_required, getString(errorField))
+            isToAdd1 = false
         }
-        if (isToAdd) {
-            contactList.add(Person(name, phone))
+        return isToAdd1
+    }
+
+    private fun validateField(
+        age: Int,
+        view: AppCompatEditText,
+        @StringRes errorField: Int
+    ): Boolean {
+        var isToAdd1 = true
+        if (age <= 0) {
+            view.error =
+                getString(R.string.message_field_required, getString(errorField))
+            isToAdd1 = false
         }
+        return isToAdd1
     }
 
 
