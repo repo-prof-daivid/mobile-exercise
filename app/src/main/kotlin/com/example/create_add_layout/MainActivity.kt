@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import com.example.create_add_layout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +25,19 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        setUpView()
         setUpListeners()
+    }
+
+    private fun setUpView() {
+        val user = intent.getExtra<User>(USER)
+        user?.let {
+            binding.txtWelcomeMessage.text = getString(R.string.welcome_message, user.name)
+            binding.txtUserEmail.text = getString(R.string.e_mail, user.email)
+        } ?: run {
+            binding.txtWelcomeMessage.isVisible = false
+            binding.txtUserEmail.isVisible = false
+        }
     }
 
     private fun setUpListeners() {
@@ -82,6 +95,10 @@ class MainActivity : AppCompatActivity() {
             isToAdd1 = false
         }
         return isToAdd1
+    }
+
+    companion object{
+        const val USER = "USER"
     }
 
 

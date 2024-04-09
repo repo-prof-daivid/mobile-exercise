@@ -10,7 +10,12 @@
     <string name="generic_error_message">Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.</string>
     <string name="add_contact_success_message">Contato adicionado com sucesso!</string>
     <string name="message_field_required">O campo %s é obrigatório!</string>
-    <string name="welcome_message">Bem vindo ao app Minha lista de Contatos!</string>
+    <string name="welcome_message">Olá %s, bem vindo ao app Minha lista de Contatos!</string>
+    <string name="welcome_message_initial">Bem vindo ao app Minha lista de Contatos!</string>
     <string name="type_name">Digite seu Nome:</string>
     <string name="got_know">Conhecer</string>
+    <string name="type_email">Digite seu e-mail:</string>
+    <string name="e_mail">E-mail: %s</string>
+    <string name="field_name">Preencha o campo com o seu Nome!</string>
+    <string name="email_field">E-mail inválido!</string>
 </resources>
