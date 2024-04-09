@@ -29,6 +29,17 @@
         android:text="@string/e_mail"
         app:layout_constraintTop_toBottomOf="@id/txtWelcomeMessage" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:visibility="gone"
+        android:id="@+id/txtUserPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/phone_input"
+        app:layout_constraintTop_toBottomOf="@id/txtUserEmail" />
+
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editTextName"
         android:layout_width="0dp"
@@ -40,7 +51,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtUserEmail" />
+        app:layout_constraintTop_toBottomOf="@id/txtUserPhone" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editTextPhone"
@@ -106,6 +117,16 @@
         android:text="@string/addPerson"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSex" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpdateUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/update_ser"
+        app:layout_constraintEnd_toStartOf="@id/btnAddPerson"
+        app:layout_constraintTop_toTopOf="@id/btnAddPerson"
+        app:layout_constraintBottom_toBottomOf="@id/btnAddPerson" />
 
     <LinearLayout
         android:id="@+id/layoutSuccess"

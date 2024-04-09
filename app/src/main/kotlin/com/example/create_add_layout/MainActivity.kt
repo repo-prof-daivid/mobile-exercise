@@ -1,7 +1,12 @@
 package com.example.create_add_layout
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
@@ -14,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val contactList = ArrayList<Person>()
+    private var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,19 +36,47 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpView() {
-        val user = intent.getExtra<User>(USER)
+        user = intent.getExtra<User>(USER)
         user?.let {
-            binding.txtWelcomeMessage.text = getString(R.string.welcome_message, user.name)
-            binding.txtUserEmail.text = getString(R.string.e_mail, user.email)
+            binding.txtWelcomeMessage.text = getString(R.string.welcome_message, user?.name)
+            binding.txtUserEmail.text = getString(R.string.e_mail, user?.email)
         } ?: run {
             binding.txtWelcomeMessage.isVisible = false
             binding.txtUserEmail.isVisible = false
         }
     }
 
+    private val getContent =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult: ActivityResult? ->
+            if (activityResult?.resultCode == Activity.RESULT_OK) {
+                user = activityResult.data?.getExtra<User>(USER)
+                user?.phone?.let {
+                    binding.txtUserPhone.text = it
+                    binding.txtUserPhone.isVisible = true
+                } ?: run {
+                    showError()
+                }
+            } else {
+                showError()
+            }
+        }
+
+    private fun showError() {
+        Toast.makeText(
+            this@MainActivity,
+            getString(R.string.phone_not_informed), Toast.LENGTH_LONG
+        ).show()
+        binding.txtUserPhone.isVisible = false
+    }
+
     private fun setUpListeners() {
         binding.btnAddPerson.setOnClickListener {
             addContact()
+        }
+        binding.btnUpdateUserInfo.setOnClickListener {
+            val intentForResult = Intent(this@MainActivity, UserInfoForResultActivity::class.java)
+            intentForResult.putExtra(USER, user)
+            getContent.launch(intentForResult)
         }
     }
 
@@ -97,7 +131,7 @@ class MainActivity : AppCompatActivity() {
         return isToAdd1
     }
 
-    companion object{
+    companion object {
         const val USER = "USER"
     }
 

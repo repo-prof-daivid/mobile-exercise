@@ -17,4 +17,7 @@
     <string name="e_mail">E-mail: %s</string>
     <string name="field_name">Preencha o campo com o seu Nome!</string>
     <string name="email_field">E-mail inválido!</string>
+    <string name="phone_input">Phone: %s</string>
+    <string name="update_ser">Atualizar Usuário</string>
+    <string name="phone_not_informed">Não foi informado nenhum telefone!</string>
 </resources>
