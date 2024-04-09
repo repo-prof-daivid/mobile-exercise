@@ -15,10 +15,10 @@
         android:text="@string/welcome_message" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:layout_margin="16dp"
         android:id="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:hint="@string/type_name" />
 
     <androidx.appcompat.widget.AppCompatButton
