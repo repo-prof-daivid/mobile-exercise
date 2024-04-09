@@ -6,5 +6,10 @@
     <string name="age">Age</string>
     <string name="hobby">Hobby</string>
     <string name="sex">Sex</string>
+    <string name="generic_error_message">An unexpected error occurred. Please try again later.</string>
+    <string name="add_contact_success_message">Contact ADD successfully.</string>
     <string name="message_field_required">Field %s is required!</string>
+    <string name="welcome_message">Bem vindo ao app Minha lista de Contatos!</string>
+    <string name="type_name">Digite seu Nome:</string>
+    <string name="got_know">Conhecer</string>
 </resources>
