@@ -48,35 +48,15 @@ class MainActivity : AppCompatActivity() {
 
     private val getContent =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult: ActivityResult? ->
-            if (activityResult?.resultCode == Activity.RESULT_OK) {
-                user = activityResult.data?.getExtra<User>(USER)
-                user?.phone?.let {
-                    binding.txtUserPhone.text = it
-                    binding.txtUserPhone.isVisible = true
-                } ?: run {
-                    showError()
-                }
-            } else {
-                showError()
-            }
-        }
 
-    private fun showError() {
-        Toast.makeText(
-            this@MainActivity,
-            getString(R.string.phone_not_informed), Toast.LENGTH_LONG
-        ).show()
-        binding.txtUserPhone.isVisible = false
-    }
+        }
 
     private fun setUpListeners() {
         binding.btnAddPerson.setOnClickListener {
             addContact()
         }
         binding.btnUpdateUserInfo.setOnClickListener {
-            val intentForResult = Intent(this@MainActivity, UserInfoForResultActivity::class.java)
-            intentForResult.putExtra(USER, user)
-            getContent.launch(intentForResult)
+
         }
     }
 

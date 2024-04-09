@@ -31,19 +31,7 @@ class UserInfoForResultActivity : AppCompatActivity() {
     private fun setUpView() {
         user = intent.getExtra<User>(USER)
         binding.btnUpdate.setOnClickListener {
-            val phone = binding.edtPhone.text.toString()
-            if (phone.isNotEmpty()) {
-                user?.phone =  phone
-                setResult(
-                    Activity.RESULT_OK,
-                    Intent().putExtra(USER, user)
-                )
-            } else {
-                setResult(
-                    Activity.RESULT_CANCELED
-                )
-            }
-            finish()
+
         }
     }
 }
