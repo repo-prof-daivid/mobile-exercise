@@ -118,16 +118,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSex" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnUpdateUserInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/update_ser"
-        app:layout_constraintEnd_toStartOf="@id/btnAddPerson"
-        app:layout_constraintTop_toTopOf="@id/btnAddPerson"
-        app:layout_constraintBottom_toBottomOf="@id/btnAddPerson" />
-
     <LinearLayout
         android:id="@+id/layoutSuccess"
         android:layout_width="wrap_content"

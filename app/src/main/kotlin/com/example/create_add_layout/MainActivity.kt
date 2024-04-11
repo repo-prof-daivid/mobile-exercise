@@ -46,17 +46,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private val getContent =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult: ActivityResult? ->
-
-        }
-
     private fun setUpListeners() {
         binding.btnAddPerson.setOnClickListener {
             addContact()
-        }
-        binding.btnUpdateUserInfo.setOnClickListener {
-
         }
     }
 
