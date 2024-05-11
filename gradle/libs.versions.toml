@@ -13,10 +13,7 @@ parcelize = "1.9.22"
 picasso="2.8"
 retrofit="2.9.0"
 firebase="4.4.1"
-firebaseAuth="23.0.0"
-firebaseFirestore="25.0.0"
-firebaseBom="33.0.0"
-firebaseCore="33.0.0"
+firebaseBom="32.3.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,9 +28,8 @@ squareup-picasso-picasso = {group = "com.squareup.picasso", name = "picasso", ve
 squareup-retrofit2-retrofit = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
 squareup-retrofit2-converter-gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit"}
 firebase-bom = {group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom"}
-firebase-core = {group = "com.google.firebase", name = "firebase-core", version.ref = "firebaseCore"}
-firebase-auth = {group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth"}
-firebase-firestore = {group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore"}
+firebase-auth = {group = "com.google.firebase", name = "firebase-auth"}
+firebase-firestore = {group = "com.google.firebase", name = "firebase-firestore"}
 
 
 [plugins]
