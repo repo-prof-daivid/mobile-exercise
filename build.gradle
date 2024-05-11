@@ -4,4 +4,5 @@ plugins {
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.parcelizeAndroid) apply false
+    alias(libs.plugins.firebaseAndroid) apply false
 }
