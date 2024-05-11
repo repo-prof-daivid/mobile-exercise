@@ -37,5 +37,5 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 parcelizeAndroid = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "parcelize" }
-firebaseAndroid = { id = "com.google.gms.google-services", version.ref = "firebase" }
+googleService = { id = "com.google.gms.google-services", version.ref = "firebase" }
 

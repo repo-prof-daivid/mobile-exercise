@@ -31,11 +31,21 @@
         android:layout_height="wrap_content"
         android:hint="@string/type_email" />
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtPwd"
+        android:inputType="textPassword"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="123456"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/type_email" />
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnKnow"
+        android:id="@+id/btnLogin"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/got_know" />
+        android:text="@string/got_login" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
