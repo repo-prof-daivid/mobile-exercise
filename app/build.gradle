@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.parcelizeAndroid)
-    alias(libs.plugins.firebaseAndroid)
 }
 
 android {
@@ -49,11 +48,6 @@ dependencies {
     implementation(libs.squareup.picasso.picasso)
     implementation(libs.squareup.retrofit2.retrofit)
     implementation(libs.squareup.retrofit2.converter.gson)
-
-    // Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.auth)
-    implementation(libs.firebase.firestore)
 
     // Test
     testImplementation(libs.junit)
