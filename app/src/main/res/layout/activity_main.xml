@@ -154,31 +154,13 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layoutError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnAddPerson">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@android:drawable/ic_popup_reminder"
-            android:tint="@android:color/holo_red_dark"
-            app:layout_constraintTop_toBottomOf="@id/btnAddPerson" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:text="@string/generic_error_message" />
-
-    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contactList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutSuccess"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/contact_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,12 +13,30 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.create_add_layout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val contactList = ArrayList<Person>()
+    private val contactList = arrayListOf(
+        Person("John Doe", "1234567890", 30, "Reading", "Male"),
+        Person("Jane Doe", "0987654321", 25, "Swimming", "Female"),
+        Person("Alice", "1112223334", 35, "Running", "Female"),
+        Person("Bob", "4445556667", 40, "Cycling", "Male"),
+        Person("Charlie", "7778889990", 45, "Hiking", "Male"),
+        Person("Diana", "3334445556", 50, "Painting", "Female"),
+        Person("Eve", "6667778889", 55, "Singing", "Female"),
+        Person("Frank", "9990001112", 60, "Cooking", "Male"),
+        Person("Grace", "2223334445", 65, "Dancing", "Female"),
+        Person("Hank", "5556667778", 70, "Fishing", "Male"),
+        Person("Irene", "8889990001", 75, "Gardening", "Female"),
+        Person("Jack", "0001112223", 80, "Photography", "Male"),
+        Person("Kelly", "4445556667", 85, "Writing", "Female"),
+        Person("Larry", "7778889990", 90, "Traveling", "Male"),
+        Person("Mona", "1112223334", 95, "Knitting", "Female")
+    )
     private var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +51,13 @@ class MainActivity : AppCompatActivity() {
         }
         setUpView()
         setUpListeners()
+        setUpRecyclerView()
+    }
+
+    private fun setUpRecyclerView() {
+        val adapter = PersonRecyclerViewAdapter(contactList)
+        binding.contactList.layoutManager = GridLayoutManager(this, 1)
+        binding.contactList.adapter = adapter
     }
 
     private fun setUpView() {
