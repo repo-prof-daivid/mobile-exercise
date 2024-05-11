@@ -33,6 +33,13 @@ class MainActivity : AppCompatActivity() {
         }
         setUpView()
         setUpListeners()
+        setUpRecyclerView()
+    }
+
+    private fun setUpRecyclerView() {
+        // TODO: 1. Create a new instance of the adapter
+        // TODO: 2. Set the layout manager to the recycler view
+        // TODO: 3. Set the adapter to the recycler view
     }
 
     private fun setUpView() {

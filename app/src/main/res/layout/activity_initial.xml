@@ -12,6 +12,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:text="@string/welcome_message_initial" />
 
     <androidx.appcompat.widget.AppCompatEditText
