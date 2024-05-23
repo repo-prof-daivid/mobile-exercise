@@ -22,4 +22,16 @@
     <string name="phone_input">Phone: %s</string>
     <string name="update_ser">Atualizar Usuário</string>
     <string name="phone_not_informed">Não foi informado nenhum telefone!</string>
+    <string name="cadastro_title">Cadastre-se</string>
+    <string name="cadastro_description">Crie seu cadastro para ter acesso ao incrível app de lista de contatos.</string>
+    <string name="username_hint">Nome:</string>
+    <string name="username_email">E-mail:</string>
+    <string name="username_phone">Phone:</string>
+    <string name="password">Senha:</string>
+    <string name="password_confirmation">Confirme sua senha:</string>
+    <string name="sing_up">Cadastre-se</string>
+    <string name="cadastrar">Cadastrar e Logar</string>
+    <string name="error_sign_up">Houve algum problema no cadastro, verifique os dados e tente novamente.</string>
+    <string name="message_password_not_match">As senha são diferentes!</string>
+    <string name="password_field">Senha inválida!</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.create_add_layout
+package com.example.create_add_layout.group_auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.create_add_layout.EMAIL_REGEX
+import com.example.create_add_layout.MainActivity
 import com.example.create_add_layout.MainActivity.Companion.USER
+import com.example.create_add_layout.R
+import com.example.create_add_layout.User
 import com.example.create_add_layout.databinding.ActivityInitialBinding
+import com.example.create_add_layout.isFieldValid
 import com.google.firebase.auth.FirebaseAuth
 
 class InitialActivity : AppCompatActivity() {
@@ -37,7 +42,16 @@ class InitialActivity : AppCompatActivity() {
             btnLogin.setOnClickListener {
                 goToMainActivity()
             }
+
+            btnSingUp.setOnClickListener {
+                goToRegisterActivity()
+            }
         }
+    }
+
+    private fun goToRegisterActivity() {
+        val intent = Intent(this@InitialActivity, SignUpActivity::class.java)
+        startActivity(intent)
     }
 
     private fun goToMainActivity() {

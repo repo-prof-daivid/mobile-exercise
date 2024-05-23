@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".InitialActivity">
+    tools:context=".group_auth.InitialActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
@@ -47,5 +47,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/got_login" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSingUp"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sing_up" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

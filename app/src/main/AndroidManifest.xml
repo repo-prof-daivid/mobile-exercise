@@ -12,10 +12,15 @@
         android:theme="@style/Theme.Listview"
         tools:targetApi="31">
         <activity
-            android:name=".UserInfoForResultActivity"
-            android:exported="false" />
+            android:name=".group_auth.SignUpActivity"
+            android:exported="false"
+            android:taskAffinity="com.example.create_add_layout.group_auth" />
         <activity
-            android:name=".InitialActivity"
+            android:name=".UserInfoForResultActivity"
+            android:exported="false"
+            android:taskAffinity="com.example.create_add_layout.group_auth" />
+        <activity
+            android:name=".group_auth.InitialActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
