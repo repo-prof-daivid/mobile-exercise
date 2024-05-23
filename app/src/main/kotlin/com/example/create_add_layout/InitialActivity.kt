@@ -65,7 +65,7 @@ class InitialActivity : AppCompatActivity() {
         }
         if (result) {
             val intent = Intent(this@InitialActivity, MainActivity::class.java)
-            intent.putExtra(USER, User(name, email))
+            intent.putExtra(USER, User(name = name, email = email))
             auth.signInWithEmailAndPassword(
                 email,
                 password
