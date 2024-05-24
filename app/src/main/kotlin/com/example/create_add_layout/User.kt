@@ -6,8 +6,11 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class User(
     var uid: String? = null,
-    val name: String,
-    val email: String,
+    var name: String? = null,
+    var email: String? = null,
     var phone: String? = null,
+): Parcelable {
+
     val contactList: ArrayList<Person> = arrayListOf()
-): Parcelable
+
+}

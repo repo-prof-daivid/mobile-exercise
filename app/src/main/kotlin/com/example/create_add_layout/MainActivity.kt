@@ -16,28 +16,15 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.create_add_layout.databinding.ActivityMainBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val contactList = arrayListOf(
-        Person("John Doe", "1234567890", 30, "Reading", "Male"),
-        Person("Jane Doe", "0987654321", 25, "Swimming", "Female"),
-        Person("Alice", "1112223334", 35, "Running", "Female"),
-        Person("Bob", "4445556667", 40, "Cycling", "Male"),
-        Person("Charlie", "7778889990", 45, "Hiking", "Male"),
-        Person("Diana", "3334445556", 50, "Painting", "Female"),
-        Person("Eve", "6667778889", 55, "Singing", "Female"),
-        Person("Frank", "9990001112", 60, "Cooking", "Male"),
-        Person("Grace", "2223334445", 65, "Dancing", "Female"),
-        Person("Hank", "5556667778", 70, "Fishing", "Male"),
-        Person("Irene", "8889990001", 75, "Gardening", "Female"),
-        Person("Jack", "0001112223", 80, "Photography", "Male"),
-        Person("Kelly", "4445556667", 85, "Writing", "Female"),
-        Person("Larry", "7778889990", 90, "Traveling", "Male"),
-        Person("Mona", "1112223334", 95, "Knitting", "Female")
-    )
+    private val contactList = arrayListOf<Person>()
     private var user: User? = null
+    private lateinit var fireStore: FirebaseFirestore
+    private lateinit var adapter: PersonRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,13 +36,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        fireStore = FirebaseFirestore.getInstance()
         setUpView()
         setUpListeners()
         setUpRecyclerView()
     }
 
     private fun setUpRecyclerView() {
-        val adapter = PersonRecyclerViewAdapter(contactList)
+        adapter = PersonRecyclerViewAdapter(contactList)
         binding.contactList.layoutManager = GridLayoutManager(this, 1)
         binding.contactList.adapter = adapter
     }
@@ -65,6 +53,23 @@ class MainActivity : AppCompatActivity() {
         user?.let {
             binding.txtWelcomeMessage.text = getString(R.string.welcome_message, user?.name)
             binding.txtUserEmail.text = getString(R.string.e_mail, user?.email)
+            fireStore.collection(USERS).document(user?.uid!!).collection(CONTACT_LIST)
+                .get()
+                .addOnSuccessListener { result ->
+                    for (document in result) {
+                        val person = document.toObject(Person::class.java)
+                        contactList.add(person)
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(
+                        this@MainActivity,
+                        getString(R.string.error_retrieving_data), Toast.LENGTH_LONG
+                    ).show()
+                }
+                .addOnCompleteListener {
+                    setUpRecyclerView()
+                }
         } ?: run {
             binding.txtWelcomeMessage.isVisible = false
             binding.txtUserEmail.isVisible = false
@@ -116,7 +121,19 @@ class MainActivity : AppCompatActivity() {
         val sex = binding.editTextSex.text.toString()
         val person = Person(name, phone, age, hobby, sex)
         if (isFormValid(person)) {
-            contactList.add(person)
+            fireStore.collection(USERS).document(user?.uid!!).collection(CONTACT_LIST)
+                .add(person)
+                .addOnSuccessListener {
+                    contactList.add(person)
+                }
+                .addOnFailureListener {
+                    Toast.makeText(
+                        this@MainActivity,
+                        it.message.toString(), Toast.LENGTH_LONG
+                    ).show()
+                }.addOnCompleteListener {
+                    adapter?.notifyDataSetChanged()
+                }
         }
     }
 
@@ -158,6 +175,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val USER = "USER"
+        const val USERS = "USERS"
+        const val CONTACT_LIST = "CONTACT_LIST"
     }
 
 

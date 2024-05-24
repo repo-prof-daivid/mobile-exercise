@@ -15,11 +15,13 @@ import com.example.create_add_layout.User
 import com.example.create_add_layout.databinding.ActivityInitialBinding
 import com.example.create_add_layout.isFieldValid
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class InitialActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInitialBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,7 @@ class InitialActivity : AppCompatActivity() {
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
         setUpView()
     }
 
@@ -78,14 +81,36 @@ class InitialActivity : AppCompatActivity() {
             result = false
         }
         if (result) {
-            val intent = Intent(this@InitialActivity, MainActivity::class.java)
-            intent.putExtra(USER, User(name = name, email = email))
             auth.signInWithEmailAndPassword(
                 email,
                 password
             ).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(intent)
+                    if (auth.currentUser?.uid != null) {
+                        val intent = Intent(this@InitialActivity, MainActivity::class.java)
+                        firestore.collection(USERS).document(auth.currentUser!!.uid)
+                            .get()
+                            .addOnSuccessListener { document ->
+                                if (document != null) {
+                                    val user = document.toObject(User::class.java)
+                                    intent.putExtra(USER, user)
+                                    finish()
+                                    startActivity(intent)
+                                } else {
+                                    Toast.makeText(
+                                        this@InitialActivity,
+                                        getString(R.string.login_error),
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                            }
+                    } else {
+                        Toast.makeText(
+                            this@InitialActivity,
+                            getString(R.string.login_error),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 } else {
                     Toast.makeText(
                         this@InitialActivity,
@@ -95,6 +120,10 @@ class InitialActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        const val USERS = "USERS"
     }
 
 }

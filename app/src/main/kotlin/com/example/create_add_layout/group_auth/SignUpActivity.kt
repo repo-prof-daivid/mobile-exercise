@@ -131,6 +131,6 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val USERS = "users"
+        const val USERS = "USERS"
     }
 }

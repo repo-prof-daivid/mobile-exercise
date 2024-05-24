@@ -26,7 +26,7 @@
         android:id="@+id/edtEmail"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="daivid@gmail.com"
+        android:text="daivid.leal@gmail.com"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/type_email" />
@@ -36,7 +36,7 @@
         android:inputType="textPassword"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="123456"
+        android:text="\@Aula1234"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/type_email" />
