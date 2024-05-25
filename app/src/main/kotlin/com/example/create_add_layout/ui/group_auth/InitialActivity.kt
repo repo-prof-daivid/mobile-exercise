@@ -1,4 +1,4 @@
-package com.example.create_add_layout.group_auth
+package com.example.create_add_layout.ui.group_auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,12 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.create_add_layout.EMAIL_REGEX
-import com.example.create_add_layout.MainActivity
-import com.example.create_add_layout.MainActivity.Companion.USER
+import com.example.create_add_layout.ui.MainActivity
+import com.example.create_add_layout.ui.MainActivity.Companion.USER
 import com.example.create_add_layout.R
-import com.example.create_add_layout.User
+import com.example.create_add_layout.model.User
 import com.example.create_add_layout.databinding.ActivityInitialBinding
+import com.example.create_add_layout.getExtra
 import com.example.create_add_layout.isFieldValid
+import com.example.create_add_layout.model.House
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -22,6 +24,7 @@ class InitialActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInitialBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+    private var house: House? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +36,6 @@ class InitialActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
@@ -41,6 +43,10 @@ class InitialActivity : AppCompatActivity() {
     }
 
     private fun setUpView() {
+        house = intent.getExtra<House>(HOUSE)
+        house?.let {
+            binding.welcomeMessage.text = getString(R.string.welcome_message, house?.name)
+        }
         binding.apply {
             btnLogin.setOnClickListener {
                 goToMainActivity()
@@ -59,17 +65,8 @@ class InitialActivity : AppCompatActivity() {
 
     private fun goToMainActivity() {
         var result = true
-        val name = binding.edtName.text.toString()
         val email = binding.edtEmail.text.toString()
         val password = binding.edtPwd.text.toString()
-        if (name.isEmpty()) {
-            Toast.makeText(
-                this@InitialActivity,
-                getString(R.string.field_name),
-                Toast.LENGTH_LONG
-            ).show()
-            result = false
-        }
         if (email.isFieldValid(Regex(EMAIL_REGEX))
                 .not()
         ) {

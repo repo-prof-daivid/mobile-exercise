@@ -10,7 +10,7 @@
     <string name="add_contact_success_message">Contact ADD successfully.</string>
     <string name="message_field_required">Field %s is required!</string>
     <string name="welcome_message">Olá %s, bem vindo ao app Minha lista de Contatos!</string>
-    <string name="welcome_message_initial">Bem vindo ao app Minha lista de Contatos!</string>
+    <string name="welcome_message_initial">Bem vindo a %s, aqui você encontra o app Minha lista de Contatos!</string>
     <string name="type_name">Digite seu Nome:</string>
     <string name="got_know">Conhecer</string>
     <string name="got_login">Login</string>
@@ -35,4 +35,6 @@
     <string name="message_password_not_match">As senha são diferentes!</string>
     <string name="password_field">Senha inválida!</string>
     <string name="error_retrieving_data">Não foi possível carregar a sua lista de contatos.</string>
+    <string name="houses">Casas de Harry Potter</string>
+    <string name="join">Click no Card para Entrar</string>
 </resources>

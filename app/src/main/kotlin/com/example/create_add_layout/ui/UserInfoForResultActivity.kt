@@ -1,4 +1,4 @@
-package com.example.create_add_layout
+package com.example.create_add_layout.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -7,8 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.create_add_layout.MainActivity.Companion.USER
+import com.example.create_add_layout.R
+import com.example.create_add_layout.ui.MainActivity.Companion.USER
 import com.example.create_add_layout.databinding.ActivityUserInfoForResultBinding
+import com.example.create_add_layout.getExtra
+import com.example.create_add_layout.model.User
 
 class UserInfoForResultActivity : AppCompatActivity() {
 

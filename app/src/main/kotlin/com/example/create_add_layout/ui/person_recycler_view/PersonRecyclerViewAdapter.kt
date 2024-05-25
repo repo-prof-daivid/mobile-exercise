@@ -1,9 +1,10 @@
-package com.example.create_add_layout
+package com.example.create_add_layout.ui.person_recycler_view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.create_add_layout.databinding.ContactItemBinding
+import com.example.create_add_layout.model.Person
 
 class PersonRecyclerViewAdapter(private val personList: List<Person>) :
     RecyclerView.Adapter<PersonViewHolder>() {

@@ -1,4 +1,4 @@
-package com.example.create_add_layout.group_auth
+package com.example.create_add_layout.ui.group_auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.create_add_layout.EMAIL_REGEX
-import com.example.create_add_layout.MainActivity
+import com.example.create_add_layout.ui.MainActivity
 import com.example.create_add_layout.PASSWORD_REGEX
 import com.example.create_add_layout.R
-import com.example.create_add_layout.User
+import com.example.create_add_layout.model.User
 import com.example.create_add_layout.databinding.ActivitySignUpBinding
 import com.example.create_add_layout.isFieldValid
 import com.google.firebase.auth.FirebaseAuth

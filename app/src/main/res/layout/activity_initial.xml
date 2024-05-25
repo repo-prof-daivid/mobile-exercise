@@ -7,52 +7,55 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".group_auth.InitialActivity">
+    tools:context=".ui.group_auth.InitialActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/welcome_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
         android:text="@string/welcome_message_initial" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edtName"
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Daivid"
-        android:hint="@string/type_name" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edtEmail"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="daivid.leal@gmail.com"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/type_email" />
+        android:hint="@string/type_email"
+        android:text="daivid.leal@gmail.com" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edtPwd"
-        android:inputType="textPassword"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="\@Aula1234"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/type_email" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/type_email"
+        android:inputType="textPassword"
+        android:text="\@Aula1234" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnLogin"
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/got_login" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSingUp"
-        android:layout_marginTop="16dp"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sing_up" />
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/got_login" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSingUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sing_up" />
+
+    </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

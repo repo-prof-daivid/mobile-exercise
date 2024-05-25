@@ -1,4 +1,4 @@
-package com.example.create_add_layout
+package com.example.create_add_layout.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

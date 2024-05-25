@@ -1,7 +1,8 @@
-package com.example.create_add_layout
+package com.example.create_add_layout.ui.person_recycler_view
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.create_add_layout.databinding.ContactItemBinding
+import com.example.create_add_layout.model.Person
 
 class PersonViewHolder(private val contactItemBinding: ContactItemBinding) :
     RecyclerView.ViewHolder(contactItemBinding.root) {

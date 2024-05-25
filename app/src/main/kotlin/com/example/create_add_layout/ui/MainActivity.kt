@@ -1,4 +1,4 @@
-package com.example.create_add_layout
+package com.example.create_add_layout.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -14,8 +14,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.create_add_layout.R
 import com.example.create_add_layout.databinding.ActivityMainBinding
+import com.example.create_add_layout.getExtra
+import com.example.create_add_layout.isFieldValid
+import com.example.create_add_layout.model.Person
+import com.example.create_add_layout.model.User
+import com.example.create_add_layout.ui.person_recycler_view.PersonRecyclerViewAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {

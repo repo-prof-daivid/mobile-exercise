@@ -11,7 +11,7 @@
     <string name="add_contact_success_message">Contato adicionado com sucesso!</string>
     <string name="message_field_required">O campo %s é obrigatório!</string>
     <string name="welcome_message">Olá %s, bem vindo ao app Minha lista de Contatos!</string>
-    <string name="welcome_message_initial">Bem vindo ao app Minha lista de Contatos!</string>
+    <string name="welcome_message_initial">Bem vindo a %s, aqui você encontra o app Minha lista de Contatos!</string>
     <string name="type_name">Digite seu Nome:</string>
     <string name="got_know">Conhecer</string>
     <string name="got_login">Login</string>
@@ -31,9 +31,11 @@
     <string name="password">Senha:</string>
     <string name="password_confirmation">Confirme sua senha:</string>
     <string name="sing_up">Cadastre-se</string>
+    <string name="houses">Casas de Harry Potter</string>
     <string name="cadastrar">Cadastrar e Logar</string>
     <string name="error_sign_up">Houve algum problema no cadastro, verifique os dados e tente novamente.</string>
     <string name="message_password_not_match">As senha são diferentes!</string>
     <string name="password_field">Senha inválida!</string>
     <string name="error_retrieving_data">Não foi possível carregar a sua lista de contatos.</string>
+    <string name="join">Click no Card para Entrar</string>
 </resources>
