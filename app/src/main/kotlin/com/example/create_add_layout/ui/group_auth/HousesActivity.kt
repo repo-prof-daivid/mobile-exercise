@@ -38,18 +38,20 @@ class HousesActivity : AppCompatActivity() {
 
     private fun setUpView() {
         binding.apply {
-            houseRecyclerViewAdapter = HouseRecyclerViewAdapter(houses) {
-                val intent = Intent(this@HousesActivity, InitialActivity::class.java)
-                intent.putExtra(HOUSE, it)
-                startActivity(intent)
-            }
+            houseRecyclerViewAdapter = HouseRecyclerViewAdapter(houses, ::gotToHouse)
             housesRecyclerView.layoutManager = LinearLayoutManager(this@HousesActivity)
             housesRecyclerView.adapter = houseRecyclerViewAdapter
         }
     }
 
+    private fun gotToHouse(house: House) {
+        val intent = Intent(this@HousesActivity, InitialActivity::class.java)
+        intent.putExtra(HOUSE, house)
+        startActivity(intent)
+    }
+
     private fun loadHouses() {
-        Network.api.getSpells().enqueue(
+        Network.api.getHouses().enqueue(
             object : retrofit2.Callback<List<House>> {
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onResponse(
@@ -57,8 +59,16 @@ class HousesActivity : AppCompatActivity() {
                     response: retrofit2.Response<List<House>>
                 ) {
                     if (response.isSuccessful) {
-                        houses.clear()
-                        houses.addAll(response.body()!!)
+                        response.body()?.let {
+                            houses.clear()
+                            houses.addAll(it)
+                        } ?: run {
+                            Toast.makeText(
+                                this@HousesActivity,
+                                "Error loading houses",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                         houseRecyclerViewAdapter.notifyDataSetChanged()
                     } else {
                         Toast.makeText(
