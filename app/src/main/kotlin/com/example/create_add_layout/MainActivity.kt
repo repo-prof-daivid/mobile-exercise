@@ -20,17 +20,26 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val contactList = ArrayList<Person>()
     private var user: User? = null
+    private val getContent =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult: ActivityResult? ->
+            if (activityResult?.resultCode == Activity.RESULT_OK) {
+                user = activityResult.data?.getExtra<User>(USER)
+                user?.phone?.let {
+                    binding.txtUserPhone.text = it
+                    binding.txtUserPhone.isVisible = true
+                } ?: run {
+                    showError()
+                }
+            } else {
+                showError()
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         setUpView()
         setUpListeners()
         setUpRecyclerView()
@@ -52,21 +61,6 @@ class MainActivity : AppCompatActivity() {
             binding.txtUserEmail.isVisible = false
         }
     }
-
-    private val getContent =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult: ActivityResult? ->
-            if (activityResult?.resultCode == Activity.RESULT_OK) {
-                user = activityResult.data?.getExtra<User>(USER)
-                user?.phone?.let {
-                    binding.txtUserPhone.text = it
-                    binding.txtUserPhone.isVisible = true
-                } ?: run {
-                    showError()
-                }
-            } else {
-                showError()
-            }
-        }
 
     private fun showError() {
         Toast.makeText(
@@ -109,7 +103,6 @@ class MainActivity : AppCompatActivity() {
                 && validateField(person.hobby, binding.editTextHobby, R.string.hobby)
                 && validateField(person.sex, binding.editTextSex, R.string.sex)
 
-
     private fun validateField(
         text: String,
         view: AppCompatEditText,
@@ -141,6 +134,5 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val USER = "USER"
     }
-
 
 }

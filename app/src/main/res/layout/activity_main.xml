@@ -21,22 +21,24 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtUserEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/e_mail"
         app:layout_constraintTop_toBottomOf="@id/txtWelcomeMessage" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:visibility="gone"
         android:id="@+id/txtUserPhone"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/phone_input"
         app:layout_constraintTop_toBottomOf="@id/txtUserEmail" />
 
@@ -127,58 +129,5 @@
         app:layout_constraintEnd_toStartOf="@id/btnAddPerson"
         app:layout_constraintTop_toTopOf="@id/btnAddPerson"
         app:layout_constraintBottom_toBottomOf="@id/btnAddPerson" />
-
-    <LinearLayout
-        android:id="@+id/layoutSuccess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnAddPerson">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@android:drawable/ic_input_add"
-            app:layout_constraintTop_toBottomOf="@id/btnAddPerson" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:text="@string/add_contact_success_message" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layoutError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnAddPerson">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@android:drawable/ic_popup_reminder"
-            android:tint="@android:color/holo_red_dark"
-            app:layout_constraintTop_toBottomOf="@id/btnAddPerson" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:text="@string/generic_error_message" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
